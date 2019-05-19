@@ -1,0 +1,11 @@
+#!/bin/bash
+
+## Pings 1.1, and then strips out everything but the ms response after "time={x ms}" to return
+ping_time=$(ping 1.1 -c 1 | awk -F "time=" '{print $2}' | awk '$1=$1')
+if [[ "$ping_time" =~ ms$ ]]
+then
+	echo "🌐 $ping_time"
+
+else
+	echo "☠ No Connection"
+fi

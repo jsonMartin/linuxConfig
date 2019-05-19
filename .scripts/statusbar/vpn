@@ -1,0 +1,10 @@
+#!/bin/bash
+vpn_status=`expressvpn status`
+
+if [ "$vpn_status" == "Not connected" ]
+then
+	echo "🔓" # Return blank for widget
+else
+	echo -n "🔒 "; echo "$vpn_status" | grep -oP "to\s+\K\w.*" # Extract everything after "Connected to"..., and print on same line with the lock icon
+fi
+

@@ -1,0 +1,3 @@
+#!/bin/sh
+percent_brightness=$(xbacklight | sed "s/\..*//")
+echo "$percent_brightness%"

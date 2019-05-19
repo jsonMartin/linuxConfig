@@ -44,7 +44,7 @@ source .aliasrc
 # source ~/scripts/checkForTrash.zsh
 
 eval $(thefuck --alias) # Add alias for the "fuck" command
-eval `dircolors ~/dircolors-solarized/dircolors.256dark` # Set Directory Colors for ls
+# eval `dircolors ~/dircolors-solarized/dircolors.256dark` # Set Directory Colors for ls
 
 # Load Paths
 # source ~/.pathrcWindows
