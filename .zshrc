@@ -36,7 +36,7 @@ plugins=(git autojump command-not-found httpie pip python vi-mode yarn)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
-source .aliasrc
+source ~/.aliasrc
 
 # unsetopt BG_NICE # This is required in Windows 10 to fix the Nice error
 
