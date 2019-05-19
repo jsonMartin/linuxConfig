@@ -1,0 +1,57 @@
+{
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+
+    // 0 = Off, 1 = Warn, 2 = Error
+    "rules": {
+        // Javascript/ES6
+        "no-console": 0, // Allow console logging for Node servers & debugging
+        "no-await-in-loop": 0, 
+        "no-constant-condition": 0, 
+        "import/no-extraneous-dependencies": 1,
+        "import/prefer-default-export": 1,
+        "max-len": 0,
+        "arrow-parens": 0,
+        "import/extensions": 0,
+        "indent": [1, 2, { "SwitchCase": 1 }],
+        "arrow-body-style": [1, "as-needed"],
+        "default-case" : 1,
+        "semi": 1,
+        "dot-notation": 1,
+        "space-infix-ops": 1,
+        "prefer-const": 1,
+        "prefer-template": 1,
+        "one-var": 1,
+        "no-multi-spaces": 1,
+        "quotes": 1,
+        "jsx-quotes": 1,
+        "no-else-return": 0,
+        "consistent-return": 0, // annoying with _.map that includes an if statement and no clear return by design
+        "eol-last": 1,
+        "func-names": 1,
+        "block-spacing": 1,
+        "no-unused-vars": 1,
+        "no-trailing-spaces": 1,
+        "comma-dangle": 1,
+        "object-shorthand": 1,
+        "object-curly-spacing": 1,
+        "no-multiple-empty-lines": 1,
+        "import/first": 1,
+        "no-use-before-define": 0, // Use before define required for GraphQL circular references
+        "no-confusing-arrow": 0, // Used for styled components
+        "no-debugger": 1, // Downgrade debugger statements to warnings for development purposes
+        "spaced-comment": 1, // Allow developer compiling with commented out code
+        "no-underscore-dangle": 0, // Required for Apollo
+        "no-return-assign": 0, // Required for styled-components injectGlobal statements
+        "no-undef": 0, // Required because of all the DOM & SUGAR variables being used
+        "radix": [1, "as-needed"],
+        "no-nested-ternary": 0,
+        "no-restricted-syntax": 0, // Required to use "of" syntax
+        "class-methods-use-this": 0, // This rule doesn't respect getters and setters
+        "no-multi-assign": 0,
+        "no-unused-expressions": 0, // Required for styled-components injectGlobal statements
+        "no-param-reassign": 1,
+        "no-bitwise": 0,
+        "jsx-a11y/href-no-hash": "off"
+    }
+}
