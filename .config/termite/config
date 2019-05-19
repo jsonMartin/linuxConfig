@@ -1,0 +1,5 @@
+[colors]
+background = rgba(0, 0, 0, 0.85)
+
+[options]
+font = DejaVuSansMono Nerd Font 10

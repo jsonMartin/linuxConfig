@@ -1,0 +1,81 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/json
+	..
+0
+d/home/json/.scripts
+	larbs.png
+7
+d/home/json
+	..
+0
+d/home
+	json
+1
+d/
+	bin
+0
+d/bin
+	..
+0
+d/
+	usr
+17
+d/usr
+	..
+0
+d/
+	home
+4
+d/home
+	json
+1
+d/home/json
+	larbs.sh
+13
+
+# Right window history (oldest to newest):
+D/home/json
+	..
+0
+D/home/json/.scripts
+	..
+0
+D/home/json
+	..
+0
+
+# Command line history (oldest to newest):
+:q
+
+# Search history (oldest to newest):
+/home
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+""/home/json/.local/share/vifm/Trash/000_,,.
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+t/home/json/.local/share/vifm/Trash/000_pic-full-190507-2255-42.png
+	/home/json/pic-full-190507-2255-42.png
+t/home/json/.local/share/vifm/Trash/000_,,.
+	/home/json/,,.
