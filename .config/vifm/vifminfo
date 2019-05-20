@@ -45,8 +45,8 @@ d/home
 	json
 1
 d/home/json
-	larbs.sh
-13
+	pic-selected-190520-2309-39.png
+16
 
 # Right window history (oldest to newest):
 D/home/json
@@ -64,6 +64,7 @@ D/home/json
 
 # Search history (oldest to newest):
 /home
+/pic-
 
 # Prompt history (oldest to newest):
 

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+vpn_status=`expressvpn status`
+
+vpn_server=$(
+expressvpn list all | # Get list of VPN servers
+cut -c1-5,44-75 | # Cut out all of the colummns that don't matter
+sed "1,2d" | # Remove first two lines
+sed -E 's/^[a-z0-9]{2,5}/& : /' | # Add a colon after the server names
+dmenu -i | # Pipe into dmenu for user selection
+awk '{print $1}' # Only take the server name as the argument to pipe into expressvpn connect command
+)
+
+if [[ $vpn_server ]]
+then
+	if [[ "$vpn_status" != "Not connected" ]]
+	then
+		notify-send "VPN is currently connected, disconnecting first..."
+		expressvpn disconnect
+	fi
+	expressvpn connect $vpn_server
+else
+	notify-send "Not connecting to VPN server..."
+fi
+

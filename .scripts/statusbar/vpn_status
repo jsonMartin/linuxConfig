@@ -1,4 +1,10 @@
 #!/bin/bash
+
+case $BLOCK_BUTTON in
+	1) vpn >/dev/null ;;
+	2) expressvpn disconnect >/dev/null  && echo "Disconnecting..." ;;
+esac
+
 vpn_status=`expressvpn status`
 
 if [ "$vpn_status" == "Not connected" ]
@@ -7,4 +13,3 @@ then
 else
 	echo -n "🔒 "; echo "$vpn_status" | grep -oP "to\s+\K\w.*" # Extract everything after "Connected to"..., and print on same line with the lock icon
 fi
-
