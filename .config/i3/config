@@ -377,14 +377,14 @@ exec --no-startup-id xinput set-prop 13 "libinput Tapping Enabled" 1
 ## Redshift
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent # for geolocation
 exec --no-startup-id redshift-gtk
+
 # bindsym $mod+space		exec --no-startup-id dmenu_run
+exec --no-startup-id xrandr --dpi 125 # Set DPI (96, 192 other options tried)
+exec --no-startup-id ntfs-3g /dev/sda4 /mnt/windows # Mount windows
+exec --no-startup-id blueman-applet # Bluetooth
 
 bindsym $mod+e layout toggle splitv splith
 bindsym $mod+Shift+e layout toggle tabbed stacking
-
-## Test for HDPI
-exec --no-startup-id xrandr --dpi 125 #96, 192 other options tried
-exec --no-startup-id ntfs-3g /dev/sda4 /mnt/windows # Mount windows
 
 ## Colors
 set $bg-color #BA55D3
