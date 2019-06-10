@@ -54,3 +54,4 @@ eval $(thefuck --alias) # Add alias for the "fuck" command
 # export TERM="xterm-256color"
 # export DISPLAY=localhost:0.0 # This BREAKS native linux...
 # source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+export TERMINAL=/usr/bin/termite
