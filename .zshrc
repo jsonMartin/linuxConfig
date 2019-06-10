@@ -47,8 +47,8 @@ eval $(thefuck --alias) # Add alias for the "fuck" command
 # eval `dircolors ~/dircolors-solarized/dircolors.256dark` # Set Directory Colors for ls
 
 # Load Paths
-# source ~/.pathrcWindows
-# source ~/.pathrcLinux
+# Adds `~/.scripts` and all subdirectories to $PATH
+export PATH="$PATH:$(du "$HOME/scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
 # Display Xwindows on WSL Linux
 # export TERM="xterm-256color"

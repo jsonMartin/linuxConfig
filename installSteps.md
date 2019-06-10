@@ -67,3 +67,5 @@
 	```
 	- Source: https://forum.manjaro.org/t/solved-kernel-4-14-screen-backlight-randomly-change/35688/3
 
+## ToDo
+- [] Create install script to make symbolic link for every file in the LinuxConfig folder (where the link doesn't already exist)
