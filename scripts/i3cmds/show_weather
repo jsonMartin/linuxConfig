@@ -1,0 +1,3 @@
+#!/bin/bash
+
+$TERMINAL -e "less -S -R -f $HOME/.local/share/weatherreport" # -R flag displays Raw characters, -f forces file to be opened even if it is considered binary
