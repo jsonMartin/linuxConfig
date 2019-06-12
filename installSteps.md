@@ -57,13 +57,16 @@
 		exec --no-startup-id redshift-gtk
 		```
 - [x] vifm: `yay -S vifm`
-
+- [x] expressvpn: `yay -S expressvpn`
+-
 ## Bug Fixes
 - Fix Keyboard brightness controls:
 	- The keyboard brightness hardware key kept appearing to send 2 keystrokes, which was messing up both *xfce4-power-manager* as well as my own keybindings in i3. It appears that the hardware, without any software listening, was responding to the event and lowering the brightness +/- 1 for every keyboard shortcut. Listening using `sudo libinput debug-events` showed that there were to key events for one key press for brightness up and down, as opposed to volume control.
 	- Fix: Edit `/etc/default/grub` and modify the following line to read like this. Added the `acpi_backlight=native` and `video.report_key_events=0` parameters:
 	```
-	GRUB_CMDLINE_LINUX_DEFAULT="acpi_osi=! acpi_osi='Windows 2009' acpi_backlight=native video.report_key_events=0 quiet resume=UUID=345779e2-480b-4b71-a2d1-111bd0d3ea42"
+	GRUB_CMDLINE_LINUX_DEFAULT="acpi_osi=! acpi_osi='Windows 2009' acpi_bac command below in `~/.profile`:
+8:export PATH="$(du $HOME/.local/bin/ | cut -f2 | tr '\n' ':')$PATH"
+ ~/voidrice   archi3 klight=native video.report_key_events=0 quiet resume=UUID=345779e2-480b-4b71-a2d1-111bd0d3ea42"
 	```
 	- Source: https://forum.manjaro.org/t/solved-kernel-4-14-screen-backlight-randomly-change/35688/3
 
