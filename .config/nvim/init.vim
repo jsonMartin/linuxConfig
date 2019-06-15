@@ -26,7 +26,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'dkarter/bullets.vim'
 
 " Color Theme
-Plug 'dracula/vim'
+Plug 'Rigellute/shades-of-purple.vim'
+" Plug 'dracula/vim'
 
 " Airline (bottom stats tab)
 Plug 'vim-airline/vim-airline'
@@ -244,7 +245,12 @@ set clipboard=unnamedplus
 
 
 " Custom
-colorscheme dracula " Without Vundle: color dracula
+" Shades of Purple
+set termguicolors
+syntax enable
+colorscheme shades_of_purple
+
+" colorscheme dracula
 
 " Start out with all folds expanded
 set foldlevelstart=0

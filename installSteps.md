@@ -58,7 +58,9 @@
 		```
 - [x] vifm: `yay -S vifm`
 - [x] expressvpn: `yay -S expressvpn`
--
+- [x] rofi: `yay -S rofi`
+	- Symlink rofi to dmenu
+	- [x] Install rofimoji: `yay -S rofimoji`
 ## Bug Fixes
 - Fix Keyboard brightness controls:
 	- The keyboard brightness hardware key kept appearing to send 2 keystrokes, which was messing up both *xfce4-power-manager* as well as my own keybindings in i3. It appears that the hardware, without any software listening, was responding to the event and lowering the brightness +/- 1 for every keyboard shortcut. Listening using `sudo libinput debug-events` showed that there were to key events for one key press for brightness up and down, as opposed to volume control.
