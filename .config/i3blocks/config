@@ -2,6 +2,9 @@ command=~/linuxConfig/scripts/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
+[focus]
+interval=5
+
 [vpn_status]
 interval=5
 
@@ -10,9 +13,8 @@ interval=3
 #label=🌐
 
 [bandwidth]
-command=~/.scripts/statusbar/bandwidth wlo1
+#command=~/.scripts/statusbar/bandwidth wlo1
 interval=1
-#label=🔃
 
 [record]
 command=cat /tmp/recordingicon

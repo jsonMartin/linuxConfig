@@ -17,6 +17,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Get custom IN and OUT labels if provided by command line arguments
+INTERFACE="wlo1"
+
 while [[ $# -gt 1 ]]; do
     key="$1"
     case "$key" in

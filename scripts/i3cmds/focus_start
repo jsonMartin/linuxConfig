@@ -1,0 +1,4 @@
+#!/bin/bash
+cd $HOME/Projects/focusingOn
+
+rofi -dmenu -async-pre-read 0 -i -p "Enter args" | xargs node focusing start # Must add "-async-pre-read 0" as an argument, or it will freeze running through i3blocks

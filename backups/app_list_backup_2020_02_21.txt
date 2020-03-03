@@ -1,0 +1,26 @@
+interception-caps2esc
+ack
+base-devel
+binutils
+google-chrome
+expressvpn
+gnome-terminal-transparency
+lsd
+python-nautilus
+neovim
+notion-app
+speedtest-cli
+thefuck
+xclip
+zsh
+expressvpn
+autojump-git
+shellcheck
+fd
+flatpak
+gnome-software
+toggldesktop
+nodejs npm
+tree
+whatip-git
+alacritty

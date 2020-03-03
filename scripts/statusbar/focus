@@ -1,0 +1,11 @@
+#!/bin/bash
+
+ case $BLOCK_BUTTON in
+	 # 1) dmenu -i -p "Enter focusing args" | xargs node focusing start ;;
+	 # 1) $HOME/scripts/i3cmds/focus_start >/dev/null ;;
+	 1) $HOME/scripts/i3cmds/focus_start ;;
+	 2) cd $HOME/Projects/focusingOn && node focusing stop ;;
+	 3) cd $HOME/Projects/focusingOn && node focusing stop ;;
+	 *) cd $HOME/Projects/focusingOn && node focusing ;;
+ esac
+

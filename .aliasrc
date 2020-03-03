@@ -5,11 +5,11 @@ alias lrth="lsd -lrtha"
 alias h="history"
 alias p="ping"
 alias pg="ping www.google.com"
+alias p1="ping 1.1"
 alias c="clear"
 alias y="yarn"
 alias du="du -h"
 alias vs="code"
-alias rm="trash"
 alias o="open"
 alias py="python3"
 alias dc="docker-compose"
@@ -18,6 +18,14 @@ alias dcd="docker-compose down"
 alias dcr="docker-compose restart"
 alias vim="nvim"
 alias v="nvim"
+alias vo="nvim -o \`fzf\`" # Allow fuzzy opening files for vim
+alias b="bat"
+# alias fzf="fzf -m"
+# alias f="fzf"
+
+# Xclip (copy to clipboard from terminal)
+alias xclip="xclip -sel clip"
+alias xc="xclip"
 
 # Git aliases
 alias gcam="git commit -am"
