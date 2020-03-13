@@ -14,13 +14,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/json/.oh-my-zsh"
 
-
-
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(git autojump command-not-found httpie pip python vi-mode yarn zsh-autosuggestions zsh-syntax-highlighting colored-man-pages history-substring-search thefuck)
 
 source $ZSH/oh-my-zsh.sh
-
 # Aliases
 source ~/.aliasrc
 

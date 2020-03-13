@@ -26,3 +26,8 @@ whatip-git
 alacritty
 bat
 the_silver_searcher
+cowsay
+fortune-mod
+oneko
+cmatrix
+chars

@@ -52,6 +52,9 @@ let g:ctrlp_cmd = 'CtrlP'
 " Auto Pairs
 Plug 'jiangmiao/auto-pairs' " https://github.com/jiangmiao/auto-pairs
 
+" Ack
+Plug 'mileszs/ack.vim' " For the :Ack command
+
 call plug#end()
 " ------------------------------------------------------------
 " PLUGINS END
@@ -93,9 +96,20 @@ set mouse=a
  	autocmd BufWritePre * %s/\s\+$//e
 
 " Shades of Purple Theme
-if (has("termguicolors"))
- set termguicolors
+"if (has("termguicolors"))
+ "set termguicolors
+"endif
+
+set termguicolors
+
+" Correct RGB escape codes for vim inside tmux
+if !has('nvim') && $TERM ==# 'screen-256color'
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
+
+
+
 syntax enable
 colorscheme shades_of_purple " Other options: dracula
 let g:shades_of_purple_airline=1
@@ -157,8 +171,6 @@ set showcmd " Shows command that is being typed
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-
 
 " --------------------------
 " |   CODE GRAVEYARD

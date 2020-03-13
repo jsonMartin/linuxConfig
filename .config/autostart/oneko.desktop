@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Oneko
+Exec=/home/json/linuxConfig/scripts/onekoCursor.sh
+Terminal=false
+Type=Application
+StartupNotify=false
