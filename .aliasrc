@@ -34,3 +34,7 @@ alias gcm="git commit -m"
 alias gaa="git add --all"
 alias gco="git checkout"
 alias g="git"
+
+# Helpers
+alias mv="mv -i"
+alias cp="cp -i"
