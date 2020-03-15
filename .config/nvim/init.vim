@@ -14,7 +14,18 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+
+" VIM Icons
+Plug 'ryanoasis/vim-devicons'
+
+" Nerdtree
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'scrooloose/nerdcommenter'
+
+Plug 'airblade/vim-gitgutter'
+
 Plug 'junegunn/goyo.vim'
 Plug 'jreybert/vimagit'
 Plug 'vimwiki/vimwiki'
@@ -56,6 +67,9 @@ Plug 'jiangmiao/auto-pairs' " https://github.com/jiangmiao/auto-pairs
 " Ack
 Plug 'mileszs/ack.vim' " For the :Ack command
 
+" Autocompletion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 " ------------------------------------------------------------
 " PLUGINS END
@@ -82,6 +96,7 @@ set mouse=a
 
 " " Nerd tree
 	map <leader>N :NERDTreeToggle<CR>
+	map <C-\> :NERDTreeToggle<CR>
 "" 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 ""
 " Shortcutting split navigation, saving a keypress:
@@ -125,7 +140,7 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 
 " Rebind F1 to open the menu similar to VSCode
 nmap <F1> :
-nmap <F2> :set paste!<CR>
+" nmap <F2> :set paste!<CR>
 nmap <C-b> <C-v>
 
 " FZF bindings
@@ -173,6 +188,11 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+
+
+
+""""""""""""""""""
+
 " --------------------------
 " |   CODE GRAVEYARD
 " --------------------------
@@ -194,3 +214,4 @@ set statusline+=%*
 " 	vnoremap <C-c> "+y
 " 	map <C-v> "+P
 "	nnoremap c "_c
+
