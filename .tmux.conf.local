@@ -130,9 +130,9 @@ tmux_conf_theme_window_status_format='#I #W'
 tmux_conf_theme_window_status_current_fg='#000000'      # black
 tmux_conf_theme_window_status_current_bg='#00afff'      # light blue
 tmux_conf_theme_window_status_current_attr='bold'
-tmux_conf_theme_window_status_current_format='#I #W'
+# tmux_conf_theme_window_status_current_format='#I #W'
 #tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
-#tmux_conf_theme_window_status_current_format='#I #W#{?window_zoomed_flag,🔍,}'
+tmux_conf_theme_window_status_current_format='#I #W#{?window_zoomed_flag,🔍,}'
 
 # window activity status style
 tmux_conf_theme_window_status_activity_fg='default'
@@ -183,7 +183,7 @@ tmux_conf_theme_right_separator_sub='|'
 #     - #{username_ssh}
 tmux_conf_theme_status_left=' ❐ #S '
 # tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized}, %R , %d %b | #{username}#{root} | #{hostname} '
-tmux_conf_theme_status_right='#{prefix}| ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} | #{username}#{root} | #{hostname} '
+tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized}| ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} | #{username}#{root} | #{hostname} '
 
 # status left style
 tmux_conf_theme_status_left_fg='#000000'  # black, white , white
@@ -315,9 +315,19 @@ set -g mouse on
 # split panes using | and -
 bind | split-window -h
 bind '\' split-window -h
+bind -n M-'\' split-window -h
 bind - split-window -v
+bind -n M-'-' split-window -v
 # unbind '"'
 # unbind %
+
+# Add Zoom key shortcut
+bind -n M-z resize-pane -Z
+
+# Add n key to create new window in addition to c
+bind n new-window -c '#{pane_current_path}'
+bind -n M-n new-window -c '#{pane_current_path}'
+# bM-n ind n new-window -c '#{pane_current_path}'
 
 # reload config file (change file location to your the tmux.conf you want to use)
 bind r source-file ~/.tmux.conf
@@ -331,6 +341,17 @@ bind -n M-Left select-pane -L
 bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
+
+# switch windows alt+number
+bind -n M-1 select-window -t 1
+bind -n M-2 select-window -t 2
+bind -n M-3 select-window -t 3
+bind -n M-4 select-window -t 4
+bind -n M-5 select-window -t 5
+bind -n M-6 select-window -t 6
+bind -n M-7 select-window -t 7
+bind -n M-8 select-window -t 8
+bind -n M-9 select-window -t 9
 
 # don't rename windows automatically
 # set-option -g allow-rename off
