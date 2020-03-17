@@ -82,6 +82,11 @@ Plug 'mileszs/ack.vim' " For the :Ack command
 " Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" TMUX like zooming
+Plug 'dhruvasagar/vim-zoom'
+nmap <Leader>z <Plug>(zoom-toggle)
+vmap <Leader>z <Plug>(zoom-toggle)
+
 call plug#end()
 " ------------------------------------------------------------
 " PLUGINS END
@@ -220,6 +225,7 @@ set showcmd " Shows command that is being typed
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:airline_section_x = '%{zoom#statusline()} %3*%y%*'
 
 " Nerdtree configuration
 let g:NERDTreeIgnore = ['^node_modules$']
@@ -259,7 +265,7 @@ nmap <F2> <Plug>(coc-rename)
 "set nowritebackup
 
 "" Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 "" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 "" delays and poor user experience.
