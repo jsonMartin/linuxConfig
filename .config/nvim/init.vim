@@ -90,6 +90,8 @@ call plug#end()
 let g:airline_powerline_fonts = 1 " For airline fonts
 set bg=light
 set mouse=a
+set ignorecase
+set smartcase
 " "set nrformats= " Treat all number strings as decimals (to ignore octals etc)
 
 "" Some basics:
@@ -166,7 +168,6 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " nmap <space> <Plug>(easymotion-jumptoanywhere) " This always runs on space press, commenting out since rebinding leader to space
 nmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
 nmap <Backspace> <Plug>(easymotion-jumptoanywhere)
-vmap <Backspace> <Plug>(easymotion-jumptoanywhere)
 nmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
 nmap <Leader>j <Leader><Leader>j
 nmap <Leader>k <Leader><Leader>k
@@ -188,6 +189,28 @@ nmap <Leader>G <Plug>(easymotion-bd-jk)
 nmap <Leader>g <Plug>(easymotion-bd-jk)
 nmap <Leader>n <Plug>(easymotion-bd-n)
 
+vmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
+vmap <Backspace> <Plug>(easymotion-jumptoanywhere)
+vmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
+vmap <Leader>j <Leader><Leader>j
+vmap <Leader>k <Leader><Leader>k
+vmap <Leader><Leader><Leader>bdb <Plug>(easymotion-bd-w)
+vmap <Leader><Leader><Leader>bde <Plug>(easymotion-bd-e)
+vmap <Leader><Leader><Leader>bdw <Plug>(easymotion-bd-w)
+vmap <Leader>b <Plug>(easymotion-bd-w)
+vmap <Leader>e <Plug>(easymotion-bd-e)
+vmap <Leader>w <Plug>(easymotion-bd-w)
+vmap <Leader>f <Leader><Leader>s
+vmap <Leader>s <Leader><Leader>s
+vmap <Leader>t <Leader><Leader>t
+vmap <Leader>2t <Plug>(easymotion-t2)
+vmap <Leader><Leader>2t <Plug>(easymotion-t2)
+vmap <Leader>2s <Plug>(easymotion-s2)
+vmap <Leader><Leader>2s <Plug>(easymotion-s2)
+vmap <Leader><Leader><Leader>bde <Plug>(easymotion-bd-e)
+vmap <Leader>G <Plug>(easymotion-bd-jk)
+vmap <Leader>g <Plug>(easymotion-bd-jk)
+vmap <Leader>n <Plug>(easymotion-bd-n)
 
 " Makes VI toggle paste mode during paste
 set pastetoggle=<f3>
