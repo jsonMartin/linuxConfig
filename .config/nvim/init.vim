@@ -23,6 +23,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdcommenter'
+let g:NERDTreeMapOpenVSplit = '\'
+let g:NERDTreeMapOpenSplit = '-'
+let NERDTreeShowHidden=1
 
 " Add colors for the hightlighting plugin
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -162,6 +165,9 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Easymotion bindings
 " nmap <space> <Plug>(easymotion-jumptoanywhere) " This always runs on space press, commenting out since rebinding leader to space
 nmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
+nmap <Backspace> <Plug>(easymotion-jumptoanywhere)
+vmap <Backspace> <Plug>(easymotion-jumptoanywhere)
+nmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
 nmap <Leader>j <Leader><Leader>j
 nmap <Leader>k <Leader><Leader>k
 nmap <Leader><Leader><Leader>bdb <Plug>(easymotion-bd-w)
@@ -300,8 +306,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -402,10 +408,10 @@ nmap <F6> <esc>:Git blame <cr>
 imap <F6> :Git blame <cr>
 
 " Splits
-nmap <Leader>\  :vsp<cr>
-imap <Leader>\  <esc>:vsp<cr>
-nmap <Leader>-  <esc>:sp<cr>
-imap <Leader>-  :sp<cr>
+nmap <Leader>\ :vsp<cr>
+vmap <Leader>\ <esc>:vsp<cr>
+nmap <Leader>- <esc>:sp<cr>
+vmap <Leader>- :sp<cr>
 set splitbelow
 set splitright
 
