@@ -1,7 +1,8 @@
-" Set Leader key
-let maplocalleader = '\'
-let mapleader = '\'
-
+" Set Leader key to be space
+let maplocalleader = ' '
+let mapleader = ' '
+" let maplocalleader = '\'
+" let mapleader = '\'
 " ------------------------------------------------------------
 " PLUGINS BEGIN
 " ------------------------------------------------------------
@@ -31,10 +32,11 @@ let g:NERDTreePatternMatchHighlightFullName = 1
 
 
 Plug 'airblade/vim-gitgutter'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 Plug 'junegunn/goyo.vim'
 Plug 'jreybert/vimagit'
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-commentary'
 Plug 'vifm/vifm.vim'
 
@@ -63,7 +65,8 @@ Plug 'junegunn/vim-peekaboo'
 " Ctrl-P
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+" let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPMixed'
 " let g:ctrlp_working_path_mode = 'ra'
 " let g:ctrlp_switch_buffer = 'et' " Opens same file in new buffer
 
@@ -112,25 +115,21 @@ set mouse=a
 	map <C-l> <C-w>l
 
 " Check file in shellcheck:
-	map <leader>s :!clear && shellcheck %<CR>
+	map <leader><leader>s :!clear && shellcheck %<CR>
 
 " Automatically deletes all trailing whitespace on save.
  	autocmd BufWritePre * %s/\s\+$//e
 
 " Shades of Purple Theme
-"if (has("termguicolors"))
- "set termguicolors
-"endif
-
-set termguicolors
+if (has("termguicolors"))
+ set termguicolors
+endif
 
 " Correct RGB escape codes for vim inside tmux
 if !has('nvim') && $TERM ==# 'screen-256color'
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-
-
 
 syntax enable
 colorscheme shades_of_purple " Other options: dracula
@@ -143,11 +142,10 @@ set foldlevelstart=0
 set foldlevel=0
 " Folding Colors
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-
 " Rebind F1 to open the menu similar to VSCode
 nmap <F1> :
 " nmap <F2> :set paste!<CR>
-nmap <C-b> <C-v>
+" nmap <C-b> <C-v>
 
 " FZF bindings
 " Mapping selecting mappings
@@ -162,8 +160,8 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Easymotion bindings
-nmap <space> <Plug>(easymotion-bd-w)
-nmap <space> <Plug>(easymotion-jumptoanywhere)
+" nmap <space> <Plug>(easymotion-jumptoanywhere) " This always runs on space press, commenting out since rebinding leader to space
+nmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
 nmap <Leader>j <Leader><Leader>j
 nmap <Leader>k <Leader><Leader>k
 nmap <Leader><Leader><Leader>bdb <Plug>(easymotion-bd-w)
@@ -236,7 +234,8 @@ set cmdheight=2
 
 "" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 "" delays and poor user experience.
-"set updatetime=300
+"" Set updatetime to 100 also for GitGutter plugin
+set updatetime=100
 
 "" Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -367,3 +366,60 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "" Resume latest coc list.
 "nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 """""""""""""""""""
+
+"" Git Gutter configuration options
+let g:gitgutter_highlight_linenrs = 1 " Highlights new lines
+let g:gitgutter_preview_win_floating = 0
+let g:gitgutter_use_location_list = 1
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+
+"" More prettier
+"let g:prettier#quickfix_enabled = 0
+"let g:prettier#quickfix_auto_focus = 0
+" prettier command for coc
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" run prettier on save
+" let g:prettier#autoformat = 1
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+nmap <Leader>f <esc>:Prettier<cr>
+
+""""""""""""""""""""""""""""""
+"" KEYBINDINGS
+""""""""""""""""""""""""""""""
+nnoremap <M-s> <esc>:w<cr>                 " save files
+inoremap <M-s> :w<cr>
+nnoremap <M-w> <esc>:q<cr>               " close current file
+inoremap <M-w> :q<cr>
+nnoremap <M-q> <esc>:qa<cr>               " quit all
+inoremap <M-q> :qa<cr>
+inoremap <M-f> <esc>:PrettierAsync<cr>
+nnoremap <M-f> :PrettierAsync<cr>
+
+nmap <F5> <esc>:Git <cr>
+imap <F5> :Git <cr>
+nmap <F6> <esc>:Git blame <cr>
+imap <F6> :Git blame <cr>
+
+" Splits
+nmap <Leader>\  :vsp<cr>
+imap <Leader>\  <esc>:vsp<cr>
+nmap <Leader>-  <esc>:sp<cr>
+imap <Leader>-  :sp<cr>
+set splitbelow
+set splitright
+
+"  Command replacement, replaces the semicolon command for f/F/t/T commands (but I hardly use these)
+" Add new binding for command mode (Using Enter instead of rebinding semicolon)
+nmap <CR> :
+vmap <CR> :
+" Semicolon rebinding solutions below
+" nmap <ENTER> :
+" vmap <ENTER> :
+" vnoremap <ENTER> :
+" vnoremap <ENTER> :
+" nnoremap ; :
+" nnoremap : ;
+" " The below remappings from colon to semicolon don't work properly when trying to combine with commands like Delete, because of using the shift with ; button brings up the command console. Use regular ; when combining with commands.
+" vnoremap ; :
+" vnoremap : v

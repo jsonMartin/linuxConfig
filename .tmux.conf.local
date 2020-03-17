@@ -355,3 +355,5 @@ bind -n M-9 select-window -t 9
 
 # don't rename windows automatically
 # set-option -g allow-rename off
+
+set -g focus-events on # For FocusGained event for vim-gitgutter
