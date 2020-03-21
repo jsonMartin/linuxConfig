@@ -87,6 +87,17 @@ Plug 'dhruvasagar/vim-zoom'
 nmap <Leader>z <Plug>(zoom-toggle)
 vmap <Leader>z <Plug>(zoom-toggle)
 
+" Allow for session saving
+Plug 'tpope/vim-obsession'
+
+" Javascript plugin
+Plug 'pangloss/vim-javascript'
+
+" Multiple Cursors
+Plug 'terryma/vim-multiple-cursors'
+" let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_select_all_word_key = '<C-m>'
+
 call plug#end()
 " ------------------------------------------------------------
 " PLUGINS END

@@ -357,3 +357,24 @@ bind -n M-9 select-window -t 9
 # set-option -g allow-rename off
 
 set -g focus-events on # For FocusGained event for vim-gitgutter
+
+######################################
+#      TPM Plugin Manager Config
+######################################
+# List of plugins
+# set -g @plugin 'tmux-plugins/tpm'
+# # set -g @plugin 'tmux-plugins/tmux-sensible'
+# set -g @plugin 'tmux-plugins/tmux-resurrect'
+# set -g @plugin 'tmux-plugins/tmux-continuum'
+# set -g @continuum-restore 'on'
+
+# Format for using in tmux.conf.local file: https://github.com/tmux-plugins/tpm/issues/127
+# List of plugins
+# set -g @tpm_plugins '           \
+#    tmux-plugins/tpm             \
+#    tmux-plugins/tmux-sensible   \
+#    tmux-plugins/tmux-resurrect  \
+# '
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+# run -b '~/.tmux/plugins/tpm/tpm'
