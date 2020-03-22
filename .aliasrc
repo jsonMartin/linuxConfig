@@ -22,6 +22,7 @@ alias vo="nvim -o \`fzf\`" # Allow fuzzy opening files for vim
 alias b="bat"
 # alias fzf="fzf -m"
 # alias f="fzf"
+alias t="tmux"
 
 # Xclip (copy to clipboard from terminal)
 alias xclip="xclip -sel clip"

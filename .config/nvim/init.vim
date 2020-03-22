@@ -65,13 +65,16 @@ Plug 'junegunn/fzf.vim'
 " Peekaboo (shows content of registers when using "/@ in normal mode and CTRL-R in insert mode)
 Plug 'junegunn/vim-peekaboo'
 
+" Ctrl-Space (instead of Ctrl-P)
+" Plug 'vim-ctrlspace/vim-ctrlspace'
+" let g:CtrlSpaceDefaultMappingKey = '<C-p> '
+" set nocompatible
+" set hidden
+
 " Ctrl-P
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
-" let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_cmd = 'CtrlPMixed'
-" let g:ctrlp_working_path_mode = 'ra'
-" let g:ctrlp_switch_buffer = 'et' " Opens same file in new buffer
+let g:ctrlp_cmd = 'CtrlP' "'CtrlPMixed'
 
 " Auto Pairs
 Plug 'jiangmiao/auto-pairs' " https://github.com/jiangmiao/auto-pairs
@@ -87,16 +90,31 @@ Plug 'dhruvasagar/vim-zoom'
 nmap <Leader>z <Plug>(zoom-toggle)
 vmap <Leader>z <Plug>(zoom-toggle)
 
+" TMUX improvements, including Allow Navigating between TMUX and VIM panes
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'roxma/vim-tmux-clipboard'
+Plug 'christoomey/vim-tmux-navigator'
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-;> :TmuxNavigatePrevious<cr>
+" The below mappings don't work so well in Visual Mode
+" vnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+" vnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+" vnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+" vnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+" vnoremap <silent> <C-;> :TmuxNavigatePrevious<cr>
+let g:tmux_navigator_disable_when_zoomed = 1
+
 " Allow for session saving
 Plug 'tpope/vim-obsession'
 
 " Javascript plugin
 Plug 'pangloss/vim-javascript'
 
-" Multiple Cursors
-Plug 'terryma/vim-multiple-cursors'
-" let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_select_all_word_key = '<C-m>'
+" Better TMUX integration
 
 call plug#end()
 " ------------------------------------------------------------
@@ -130,10 +148,10 @@ set smartcase
 "" 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 ""
 " Shortcutting split navigation, saving a keypress:
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
+	" map <C-h> <C-w>h
+	" map <C-j> <C-w>j
+	" map <C-k> <C-w>k
+	" map <C-l> <C-w>l
 
 " Check file in shellcheck:
 	map <leader><leader>s :!clear && shellcheck %<CR>
@@ -182,6 +200,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Easymotion bindings
 " nmap <space> <Plug>(easymotion-jumptoanywhere) " This always runs on space press, commenting out since rebinding leader to space
+nmap <F12> <Plug>(easymotion-jumptoanywhere) " This is used for my alternate R-ALT keybinding
 nmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
 nmap <Backspace> <Plug>(easymotion-jumptoanywhere)
 nmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
@@ -430,6 +449,14 @@ nmap [h <Plug>(GitGutterPrevHunk)
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 nmap <Leader>f <esc>:Prettier<cr>
 
+" Allow to run macros over visual selection
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 """"""""""""""""""""""""""""""
 "" KEYBINDINGS
 """"""""""""""""""""""""""""""
@@ -469,3 +496,9 @@ vmap <CR> :
 " " The below remappings from colon to semicolon don't work properly when trying to combine with commands like Delete, because of using the shift with ; button brings up the command console. Use regular ; when combining with commands.
 " vnoremap ; :
 " vnoremap : v
+
+"""" PLUGINS NO LONGER USING
+" Multiple Cursors
+" Plug 'terryma/vim-multiple-cursors'
+" " let g:multi_cursor_use_default_mapping=0
+" let g:multi_cursor_select_all_word_key = '<C-m>'
