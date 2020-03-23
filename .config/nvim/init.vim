@@ -114,6 +114,19 @@ Plug 'tpope/vim-obsession'
 " Javascript plugin
 Plug 'pangloss/vim-javascript'
 
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map <Leader>/ <Plug>(incsearch-easymotion-/)
+map <Leader>? <Plug>(incsearch-easymotion-?)
+map <Leader>g/ <Plug>(incsearch-easymotion-stay)
+map <Leader>. <Plug>(incsearch-fuzzy-/)
+map <Leader>> <Plug>(incsearch-fuzzy-?)
+map <Leader>g/ <Plug>(incsearch-fuzzy-stay)
+
 " Better TMUX integration
 
 call plug#end()
@@ -198,54 +211,67 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-" Easymotion bindings
+" Easymotion binding
 " nmap <space> <Plug>(easymotion-jumptoanywhere) " This always runs on space press, commenting out since rebinding leader to space
-nmap <F12> <Plug>(easymotion-jumptoanywhere) " This is used for my alternate R-ALT keybinding
-nmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
-nmap <Backspace> <Plug>(easymotion-jumptoanywhere)
-nmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
-nmap <Leader>j <Leader><Leader>j
-nmap <Leader>k <Leader><Leader>k
-nmap <Leader><Leader><Leader>bdb <Plug>(easymotion-bd-w)
-nmap <Leader><Leader><Leader>bde <Plug>(easymotion-bd-e)
-nmap <Leader><Leader><Leader>bdw <Plug>(easymotion-bd-w)
+" nmap <Space> <Plug>(easymotion-jumptoanywhere)
+" vmap <Space> <Plug>(easymotion-jumptoanywhere)
+map <Leader> <Plug>(easymotion-prefix)
+
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>F <Plug>(easymotion-overwin-f)
+nmap <Leader>S <Plug>(easymotion-overwin-f2)
+map <Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader>l <Plug>(easymotion-overwin-line)
+nmap <Leader>W <Plug>(easymotion-overwin-w)
+nmap \| <Plug>(easymotion-overwin-w)
+nmap <Leader>: <Plug>(easymotion-overwin-w)
+vmap <Leader>: <Plug>(easymotion-overwin-w)
+
+nmap <Leader>? <Plug>(easymotion-overwin-w)
+vmap <Leader>? <Plug>(easymotion-overwin-w)
+nmap <Leader>; <Plug>(easymotion-jumptoanywhere)
+nmap <Leader>; <Plug>(easymotion-jumptoanywhere)
+vmap \ <Plug>(easymotion-jumptoanywhere)
+nmap \ <Plug>(easymotion-jumptoanywhere)
+" nmap <Leader>j <Leader><Leader>j
+" nmap <Leader>k <Leader><Leader>k
 nmap <Leader>b <Plug>(easymotion-bd-w)
 nmap <Leader>e <Plug>(easymotion-bd-e)
 nmap <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>f <Leader><Leader>s
-nmap <Leader>s <Leader><Leader>s
-nmap <Leader>t <Leader><Leader>t
-nmap <Leader>2t <Plug>(easymotion-t2)
-nmap <Leader><Leader>2t <Plug>(easymotion-t2)
-nmap <Leader>2s <Plug>(easymotion-s2)
-nmap <Leader><Leader>2s <Plug>(easymotion-s2)
-nmap <Leader><Leader><Leader>bde <Plug>(easymotion-bd-e)
-nmap <Leader>G <Plug>(easymotion-bd-jk)
-nmap <Leader>g <Plug>(easymotion-bd-jk)
-nmap <Leader>n <Plug>(easymotion-bd-n)
+" nmap <Leader>f <Leader><Leader>s
+" nmap <Leader>s <Leader><Leader>s
+" nmap <Leader>t <Leader><Leader>t
+" nmap <Leader>2t <Plug>(easymotion-t2)
+" nmap <Leader><Leader>2t <Plug>(easymotion-t2)
+" nmap <Leader>2s <Plug>(easymotion-s2)
+" nmap <Leader><Leader>2s <Plug>(easymotion-s2)
+" nmap <Leader><Leader><Leader>bde <Plug>(easymotion-bd-e)
+" nmap <Leader>G <Plug>(easymotion-bd-jk)
+" nmap <Leader>g <Plug>(easymotion-bd-jk)
+" nmap <Leader>n <Plug>(easymotion-bd-n)
 
-vmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
-vmap <Backspace> <Plug>(easymotion-jumptoanywhere)
-vmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
-vmap <Leader>j <Leader><Leader>j
-vmap <Leader>k <Leader><Leader>k
-vmap <Leader><Leader><Leader>bdb <Plug>(easymotion-bd-w)
-vmap <Leader><Leader><Leader>bde <Plug>(easymotion-bd-e)
-vmap <Leader><Leader><Leader>bdw <Plug>(easymotion-bd-w)
+" vmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
+" " vmap <Backspace> <Plug>(easymotion-jumptoanywhere)
+" vmap <Leader>/ <Plug>(easymotion-jumptoanywhere)
+" vmap <Leader>j <Leader><Leader>j
+" vmap <Leader>k <Leader><Leader>k
+" vmap <Leader><Leader><Leader>bdb <Plug>(easymotion-bd-w)
+" vmap <Leader><Leader><Leader>bde <Plug>(easymotion-bd-e)
+" vmap <Leader><Leader><Leader>bdw <Plug>(easymotion-bd-w)
 vmap <Leader>b <Plug>(easymotion-bd-w)
 vmap <Leader>e <Plug>(easymotion-bd-e)
 vmap <Leader>w <Plug>(easymotion-bd-w)
-vmap <Leader>f <Leader><Leader>s
-vmap <Leader>s <Leader><Leader>s
-vmap <Leader>t <Leader><Leader>t
-vmap <Leader>2t <Plug>(easymotion-t2)
-vmap <Leader><Leader>2t <Plug>(easymotion-t2)
-vmap <Leader>2s <Plug>(easymotion-s2)
-vmap <Leader><Leader>2s <Plug>(easymotion-s2)
-vmap <Leader><Leader><Leader>bde <Plug>(easymotion-bd-e)
-vmap <Leader>G <Plug>(easymotion-bd-jk)
-vmap <Leader>g <Plug>(easymotion-bd-jk)
-vmap <Leader>n <Plug>(easymotion-bd-n)
+" vmap <Leader>f <Leader><Leader>s
+" vmap <Leader>s <Leader><Leader>s
+" vmap <Leader>t <Leader><Leader>t
+" vmap <Leader>2t <Plug>(easymotion-t2)
+" vmap <Leader><Leader>2t <Plug>(easymotion-t2)
+" vmap <Leader>2s <Plug>(easymotion-s2)
+" vmap <Leader><Leader>2s <Plug>(easymotion-s2)
+" vmap <Leader><Leader><Leader>bde <Plug>(easymotion-bd-e)
+" vmap <Leader>G <Plug>(easymotion-bd-jk)
+" vmap <Leader>g <Plug>(easymotion-bd-jk)
+" vmap <Leader>n <Plug>(easymotion-bd-n)
 
 " Makes VI toggle paste mode during paste
 set pastetoggle=<f3>
@@ -447,7 +473,7 @@ nmap [h <Plug>(GitGutterPrevHunk)
 " run prettier on save
 " let g:prettier#autoformat = 1
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-nmap <Leader>f <esc>:Prettier<cr>
+nmap <Leader>p <esc>:Prettier<cr>
 
 " Allow to run macros over visual selection
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
