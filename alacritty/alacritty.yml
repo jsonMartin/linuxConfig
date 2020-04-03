@@ -34,13 +34,13 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
 
-  #padding:
-  #  x: 0
-  #  y: 0
+  padding:
+   x: 0
+   y: 0
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
-  #dynamic_padding: false
+  # dynamic_padding: false
 
   # Window decorations
   #
@@ -152,7 +152,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 14.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -389,7 +389,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: .6
+background_opacity: .7
 
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -412,10 +412,10 @@ cursor:
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
-  #unfocused_hollow: true
+  unfocused_hollow: true
 
 # Live config reload (changes require restart)
-#live_config_reload: true
+live_config_reload: true
 
 # Shell
 #
@@ -630,8 +630,10 @@ cursor:
 # binding with the same triggers is defined. To unset a default binding, it can
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
-#key_bindings:
+key_bindings:
   # (Windows, Linux, and BSD only)
+  - { key: F,        mods: Super|Shift, action: ToggleFullscreen  }
+  - { key: F,        mods: Super|Control, action: ToggleFullscreen  }
   #- { key: V,        mods: Control|Shift, action: Paste            }
   #- { key: C,        mods: Control|Shift, action: Copy             }
   #- { key: Insert,   mods: Shift,         action: PasteSelection   }
